@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
     public void addNewUser(UserDto userDto) {
 //        Convert UserDto to User
         User newUser = Mapper.fromUserDtoToUser(userDto);
-//        checking is it user is alr exit
+//        checking if user is alr exit
         boolean userExists = userDao.getAllUser().stream()
                 .anyMatch(user -> user.getEmail().equalsIgnoreCase(newUser.getEmail()));
         if (userExists) {
